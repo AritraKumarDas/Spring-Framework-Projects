@@ -1,18 +1,25 @@
 package com.akd.library;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.akd.library.entity.Library;
-import com.akd.library.service.LibraryService;
+import com.akd.library.service.LibraryCreateService;
+import com.akd.library.service.LibraryReadService;
 
 @SpringBootApplication(scanBasePackages = "com.akd.library")
 public class SpringBootLibraryRestApiApplication implements CommandLineRunner {
 
 	@Autowired
-	LibraryService libraryService;
+	LibraryReadService libraryService;
+
+	@Autowired
+	LibraryCreateService libraryCreateService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootLibraryRestApiApplication.class, args);
@@ -46,10 +53,20 @@ public class SpringBootLibraryRestApiApplication implements CommandLineRunner {
 		 * catch (Exception e) { System.out.println("\nMore than one result obtained!");
 		 * }
 		 */
-		Library newLibrary = Library.builder().id(15).libraryName("Washington Library").books("Merchant of Venice")
-				.build();
-		Library returnedLibrary = libraryService.createSingleLibrary(newLibrary);
-		System.out.println(returnedLibrary);
+
+		/*
+		 * Library newLibrary =
+		 * Library.builder().id(15).libraryName("Washington Library").
+		 * books("Merchant of Venice") .build(); Library returnedLibrary =
+		 * libraryService.createSingleLibrary(newLibrary);
+		 * System.out.println(returnedLibrary);
+		 */
+
+		List<Library> list = new ArrayList<Library>();
+		list.add(new Library(18, "Calcutta National Library", "Swadhinota Hinotay"));
+		list.add(new Library(19, "Central Iron Library", "Indian Independence Stuggle"));
+		List<Library> addedList = libraryCreateService.addAllLibraries(list);
+		System.out.println(addedList);
 
 	}
 

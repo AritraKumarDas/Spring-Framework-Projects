@@ -19,7 +19,7 @@ import com.akd.library.entity.Library;
 import com.akd.library.repo.LibraryRepo;
 
 @Service
-public class LibraryServiceImlp implements LibraryService {
+public class LibraryReadServiceImlp implements LibraryReadService {
 
 	@Autowired
 	private LibraryRepo libraryRepo;
@@ -165,9 +165,7 @@ public class LibraryServiceImlp implements LibraryService {
 
 	@Override
 	public Library createSingleLibrary(Library library) {
-
 		return libraryRepo.saveAndFlush(library);
-
 	}
 
 	@Override

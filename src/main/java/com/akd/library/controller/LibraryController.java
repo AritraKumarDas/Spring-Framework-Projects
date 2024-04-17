@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.akd.library.entity.Library;
-import com.akd.library.service.LibraryService;
+import com.akd.library.service.LibraryReadService;
 
 @RestController
 public class LibraryController {
 
 	@Autowired
-	LibraryService libraryService;
+	LibraryReadService libraryService;
 
 //	@GetMapping("/libraries")
 //	public List<Library> getLibraries() {

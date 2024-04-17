@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.akd.library.entity.Library;
 
-public interface LibraryService {
+public interface LibraryReadService {
 
 	public List<Library> getAllLibraries();
 
