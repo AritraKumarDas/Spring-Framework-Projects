@@ -31,6 +31,4 @@ public interface LibraryReadService {
 
 	public Optional<Library> getALibraryWithTheseBooks(String bookName);
 
-	public Library createSingleLibrary(Library library);
-
 }

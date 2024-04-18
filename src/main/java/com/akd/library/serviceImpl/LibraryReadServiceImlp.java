@@ -1,4 +1,4 @@
-package com.akd.library.service;
+package com.akd.library.serviceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import com.akd.library.entity.Library;
 import com.akd.library.repo.LibraryRepo;
+import com.akd.library.service.LibraryReadService;
 
 @Service
 public class LibraryReadServiceImlp implements LibraryReadService {
@@ -161,11 +162,6 @@ public class LibraryReadServiceImlp implements LibraryReadService {
 		Example<Library> example = Example.of(libraryWithTheseBooks, exampleMatcher);
 		return libraryRepo.findOne(example);
 
-	}
-
-	@Override
-	public Library createSingleLibrary(Library library) {
-		return libraryRepo.saveAndFlush(library);
 	}
 
 	@Override

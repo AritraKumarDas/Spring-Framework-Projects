@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.akd.library.entity.Library;
+import com.akd.library.service.LibraryCreateService;
 import com.akd.library.service.LibraryReadService;
 
 @RestController
@@ -19,6 +20,9 @@ public class LibraryController {
 
 	@Autowired
 	LibraryReadService libraryService;
+
+	@Autowired
+	LibraryCreateService libraryCreateService;
 
 //	@GetMapping("/libraries")
 //	public List<Library> getLibraries() {
@@ -55,7 +59,7 @@ public class LibraryController {
 
 	@PostMapping("/create-library")
 	public Library saveLibrary(@RequestBody Library library) {
-		return libraryService.createSingleLibrary(library);
+		return libraryCreateService.createSingleLibrary(library);
 
 	}
 

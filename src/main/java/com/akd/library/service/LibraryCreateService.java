@@ -6,6 +6,8 @@ import com.akd.library.entity.Library;
 
 public interface LibraryCreateService {
 
+	public Library createSingleLibrary(Library library);
+
 	public List<Library> addAllLibraries(List<Library> librariesList);
 
 }
